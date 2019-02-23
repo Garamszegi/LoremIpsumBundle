@@ -9,7 +9,8 @@
         }
     ],
     "require": {
-        "php": "^7.1.3"
+        "php": "^7.1.3",
+        "Garamszegi/lorem-ipsum-bundle": "^1.0"
     },
     "autoload": {
         "psr-4": {

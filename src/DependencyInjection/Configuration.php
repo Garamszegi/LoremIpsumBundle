@@ -14,13 +14,24 @@ class Configuration implements ConfigurationInterface {
 
     //put your code here
     public function getConfigTreeBuilder() {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('knpu_lorem_ipsum');
+        $treeBuilder = new TreeBuilder('knpu_lorem_ipsum');
+        $rootNode = \method_exists(TreeBuilder::class, 'getRootNode') ? $treeBuilder->getRootNode() : $treeBuilder->root('knpu_lorem_ipsum');
+
         $rootNode
-               ->children()
-                ->scalarNode('word_provider')->defaultNull()->end()
-                ->booleanNode('unicorns_are_real')->defaultTrue()->info('Whether or not you believe in unicorns')->end()
-                ->integerNode('min_sunshine')->defaultValue(3)->info('How much do you like sunshine?')->end();
+                ->addDefaultsIfNotSet()
+                ->children()
+                    ->scalarNode('word_provider')
+                        ->defaultNull()
+                    ->end()
+                    ->booleanNode('unicorns_are_real')
+                        ->defaultTrue()
+                        ->info('Whether or not you believe in unicorns')
+                    ->end()
+                    ->integerNode('min_sunshine')
+                        ->defaultValue(3)
+                        ->info('How much do you like sunshine?')
+                    ->end()
+                ->end();
 
         return $treeBuilder;
     }

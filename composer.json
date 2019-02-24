@@ -6,15 +6,13 @@
     "authors": [
         {
             "name": "Garamszegi Erik"
-           
         }
     ],
-   "require": {
+    "require": {
         "php": "^7.1.3",
         "symfony/config": "^4.0",
         "symfony/dependency-injection": "^4.0",
         "symfony/http-kernel": "^4.0"
-        
     },
     "require-dev": {
         "symfony/framework-bundle": "^3.4 || ^4.0",
@@ -25,7 +23,8 @@
         "psr-4": {
             "KnpU\\LoremIpsumBundle\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "KnpU\\LoremIpsumBundle\\Tests\\": "tests/"
     }
-    
-    
 }

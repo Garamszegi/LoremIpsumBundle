@@ -5,3 +5,4 @@ language: php
     - '7.0'
     - hhvm # on Trusty only
     - nightly
+  script: phpunit --coverage-text
